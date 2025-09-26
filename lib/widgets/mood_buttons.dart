@@ -15,13 +15,13 @@ class MoodButtons extends StatelessWidget {
           onPressed: () {
             Provider.of<MoodModel>(context, listen: false).setHappy();
           },
-          child: const Text('😊 Happy'),
+          child: const Text('😂 Happy'),
         ),
         ElevatedButton(
           onPressed: () {
             Provider.of<MoodModel>(context, listen: false).setSad();
           },
-          child: const Text('😢 Sad'),
+          child: const Text('🫤 Sad'),
         ),
         ElevatedButton(
           onPressed: () {

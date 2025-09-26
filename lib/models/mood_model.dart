@@ -29,11 +29,11 @@ class MoodModel extends ChangeNotifier {
   }
 
   void setHappy() {
-    _updateMood('😊', 'Happy', Colors.yellow.shade200);
+    _updateMood('😂', 'Happy', Colors.yellow.shade200);
   }
 
   void setSad() {
-    _updateMood('😢', 'Sad', Colors.blue.shade200);
+    _updateMood('🫤', 'Sad', Colors.blue.shade200);
   }
 
   void setExcited() {
