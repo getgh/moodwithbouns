@@ -13,12 +13,28 @@ class MoodCounter extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Row(
             mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _buildCounter('Happy 😊', moodModel.moodCounts['Happy'] ?? 0),
+              _buildCounter(
+                context,
+                'Happy',
+                'assets/images/happy.png',
+                moodModel.moodCounts['Happy'] ?? 0,
+              ),
               const SizedBox(width: 20),
-              _buildCounter('Sad 😢', moodModel.moodCounts['Sad'] ?? 0),
+              _buildCounter(
+                context,
+                'Sad',
+                'assets/images/sad.png',
+                moodModel.moodCounts['Sad'] ?? 0,
+              ),
               const SizedBox(width: 20),
-              _buildCounter('Excited 🤩', moodModel.moodCounts['Excited'] ?? 0),
+              _buildCounter(
+                context,
+                'Excited',
+                'assets/images/excited.png',
+                moodModel.moodCounts['Excited'] ?? 0,
+              ),
             ],
           ),
         ),
@@ -26,10 +42,25 @@ class MoodCounter extends StatelessWidget {
     );
   }
 
-  Widget _buildCounter(String label, int count) {
+  Widget _buildCounter(
+    BuildContext context,
+    String label,
+    String imagePath,
+    int count,
+  ) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Text(label),
+        Image.asset(
+          imagePath,
+          width: 32,
+          height: 32,
+        ),
+        const SizedBox(height: 4),
+        Text(
+          label,
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
         Text(
           count.toString(),
           style: const TextStyle(
