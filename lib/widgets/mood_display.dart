@@ -8,21 +8,14 @@ class MoodDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<MoodModel>(
-      builder: (context, moodModel, child) {
-        return Column(
-          children: [
-            const Text(
-              'Current Mood:',
-              style: TextStyle(fontSize: 24),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              moodModel.currentMood,
-              style: const TextStyle(fontSize: 72),
-            ),
-          ],
-        );
-      },
+      builder: (context, moodModel, child) => Container(
+        padding: const EdgeInsets.all(20),
+        child: Image.asset(
+          moodModel.currentMood,
+          width: 100,
+          height: 100,
+        ),
+      ),
     );
   }
 }

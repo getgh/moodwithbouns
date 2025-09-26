@@ -14,11 +14,11 @@ class MoodCounter extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _buildCounter('Happy 😂', moodModel.moodCounts['Happy'] ?? 0),
+              _buildCounter('Happy 😊', moodModel.moodCounts['Happy'] ?? 0),
               const SizedBox(width: 20),
-              _buildCounter('Sad 🫤', moodModel.moodCounts['Sad'] ?? 0),
+              _buildCounter('Sad 😢', moodModel.moodCounts['Sad'] ?? 0),
               const SizedBox(width: 20),
-              _buildCounter('Excited 🥳', moodModel.moodCounts['Excited'] ?? 0),
+              _buildCounter('Excited 🤩', moodModel.moodCounts['Excited'] ?? 0),
             ],
           ),
         ),

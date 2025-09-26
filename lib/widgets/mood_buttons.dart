@@ -11,31 +11,55 @@ class MoodButtons extends StatelessWidget {
       spacing: 8,
       runSpacing: 8,
       children: [
-        ElevatedButton(
-          onPressed: () {
-            Provider.of<MoodModel>(context, listen: false).setHappy();
-          },
-          child: const Text('😂 Happy'),
+        _buildMoodButton(
+          context,
+          'Happy',
+          'assets/images/happy.png',
+          () => Provider.of<MoodModel>(context, listen: false).setHappy(),
         ),
-        ElevatedButton(
-          onPressed: () {
-            Provider.of<MoodModel>(context, listen: false).setSad();
-          },
-          child: const Text('🫤 Sad'),
+        _buildMoodButton(
+          context,
+          'Sad',
+          'assets/images/sad.png',
+          () => Provider.of<MoodModel>(context, listen: false).setSad(),
         ),
-        ElevatedButton(
-          onPressed: () {
-            Provider.of<MoodModel>(context, listen: false).setExcited();
-          },
-          child: const Text('🥳 Excited'),
+        _buildMoodButton(
+          context,
+          'Excited',
+          'assets/images/excited.png',
+          () => Provider.of<MoodModel>(context, listen: false).setExcited(),
         ),
-        ElevatedButton(
+        ElevatedButton.icon(
           onPressed: () {
             Provider.of<MoodModel>(context, listen: false).randomMood();
           },
-          child: const Text('🎲 Random'),
+          icon: const Icon(Icons.shuffle),
+          label: const Text('Random'),
         ),
       ],
+    );
+  }
+
+  Widget _buildMoodButton(
+    BuildContext context,
+    String label,
+    String imagePath,
+    VoidCallback onPressed,
+  ) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset(
+            imagePath,
+            width: 24,
+            height: 24,
+          ),
+          const SizedBox(width: 8),
+          Text(label),
+        ],
+      ),
     );
   }
 }

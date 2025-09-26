@@ -10,21 +10,22 @@ class MoodHistory extends StatelessWidget {
     return Consumer<MoodModel>(
       builder: (context, moodModel, child) => Card(
         child: Padding(
-          padding: const EdgeInsets.all(17.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
               const Text('Mood History'),
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
               moodModel.moodHistory.isEmpty
                   ? const Text('No history yet')
                   : Row(
                       mainAxisSize: MainAxisSize.min,
                       children: moodModel.moodHistory
-                          .map((mood) => Padding(
+                          .map((imagePath) => Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 4),
-                                child: Text(
-                                  mood,
-                                  style: const TextStyle(fontSize: 24),
+                                child: Image.asset(
+                                  imagePath,
+                                  width: 32,
+                                  height: 32,
                                 ),
                               ))
                           .toList(),
